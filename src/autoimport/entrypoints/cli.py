@@ -21,7 +21,7 @@ def get_files(source_path: str) -> List[IO[Any]]:
     files = []
     for py_file in Path(source_path).glob("**/*.py"):
         if py_file.is_file():
-            files.append(click.File("r+").convert(py_file, None, None))
+            files.append(click.File("r+", encoding='utf-8').convert(py_file, None, None))
     return files
 
 
@@ -49,7 +49,7 @@ class FileOrDir(click.ParamType):
     ) -> List[IO[Any]]:
         """Convert the value to the correct type."""
         try:
-            return [click.File("r+").convert(value, param, ctx)]
+            return [click.File("r+", encoding='utf-8').convert(value, param, ctx)]
         except click.BadParameter:
             path = click.Path(exists=True).convert(value, param, ctx)
             return get_files(str(path))

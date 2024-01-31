@@ -2,7 +2,7 @@
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "1.4.0"
+version = "0.0.1"
 tag_format = "$version"
 version_files = [
     "pyproject.toml:version",
@@ -21,7 +21,7 @@ version_files = [
 # See https://www.python.org/dev/peps/pep-0621/
 dynamic = ["version"]
 authors = [
-    {name = "Lyz", email = "lyz@riseup.net"},
+    {name = "stageert", email = "stageert@outlook.com"},
 ]
 license = {text = "GPL-3.0-only"}
 requires-python = ">=3.8"
@@ -33,7 +33,7 @@ dependencies = [
     "maison>=1.4.0",
     "xdg>=6.0.0",
 ]
-name = "autoimport"
+name = "autoimportutf8"
 description = "Autoimport missing python libraries."
 readme = "README.md"
 classifiers=[
@@ -52,10 +52,7 @@ classifiers=[
     "Natural Language :: English",
 ]
 
-[project.urls]
-Issues = "https://github.com/lyz-code/autoimport/issues"
-homepage = "https://github.com/lyz-code/autoimport"
-documentation = "https://lyz-code.github.io/autoimport"
+
 
 [project.scripts]
 autoimport = "autoimport.entrypoints.cli:cli"
