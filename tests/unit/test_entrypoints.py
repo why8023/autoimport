@@ -8,7 +8,7 @@ from typing import Any, Sequence
 import click
 import pytest
 
-from autoimport.entrypoints.cli import FileOrDir, flatten, get_files
+from autoimportutf8.entrypoints.cli import FileOrDir, flatten, get_files
 
 
 @pytest.mark.parametrize(

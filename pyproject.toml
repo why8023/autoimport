@@ -6,12 +6,12 @@ version = "0.0.1"
 tag_format = "$version"
 version_files = [
     "pyproject.toml:version",
-    "src/autoimport/version.py",
+    "src/autoimportutf8/version.py",
 ]
 
-# --------- Autoimport -------------
+# --------- autoimportutf8 -------------
 
-[tool.autoimport.common_statements]
+[tool.autoimportutf8.common_statements]
 "factories" = "from tests import factories"
 
 # --------- PDM -------------
@@ -34,7 +34,7 @@ dependencies = [
     "xdg>=6.0.0",
 ]
 name = "autoimportutf8"
-description = "Autoimport missing python libraries."
+description = "autoimportutf8 missing python libraries."
 readme = "README.md"
 classifiers=[
     "Development Status :: 5 - Production/Stable",
@@ -55,7 +55,7 @@ classifiers=[
 
 
 [project.scripts]
-autoimport = "autoimport.entrypoints.cli:cli"
+autoimportutf8 = "autoimportutf8.entrypoints.cli:cli"
 
 [project.optional-dependencies]
 
@@ -69,7 +69,7 @@ source-includes = ["tests/"]
 
 [tool.pdm.version]
 source = "file"
-path = "src/autoimport/version.py"
+path = "src/autoimportutf8/version.py"
 
 [tool.pdm.overrides]
 # To be removed once https://github.com/flakeheaven/flakeheaven/issues/132 is solved
@@ -187,7 +187,7 @@ norecursedirs = [
     "*/static/*",
     "docs",
     "venv",
-    "*/Autoimport/*",
+    "*/autoimportutf8/*",
     "*/deepdiff/*"
 ]
 markers = [

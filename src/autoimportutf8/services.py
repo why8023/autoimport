@@ -8,7 +8,7 @@ from typing import Any, Dict, Optional, Tuple
 
 from _io import TextIOWrapper
 
-from autoimport.model import SourceCode
+from autoimportutf8.model import SourceCode
 
 
 def fix_files(

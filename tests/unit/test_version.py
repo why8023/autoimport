@@ -3,7 +3,7 @@
 import platform
 import sys
 
-from autoimport.version import __version__, version_info
+from autoimportutf8.version import __version__, version_info
 
 
 def test_version() -> None:

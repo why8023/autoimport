@@ -9,8 +9,8 @@ from typing import Dict, List, Optional
 import pytest
 from click.testing import CliRunner
 
-from autoimport.entrypoints.cli import cli
-from autoimport.version import __version__
+from autoimportutf8.entrypoints.cli import cli
+from autoimportutf8.version import __version__
 
 
 @pytest.fixture(name="runner")
@@ -25,7 +25,7 @@ def test_version(runner: CliRunner) -> None:
 
     assert result.exit_code == 0
     assert re.search(
-        rf" *autoimport: {__version__}\n *Python: .*\n *Platform: .*",
+        rf" *autoimportutf8: {__version__}\n *Python: .*\n *Platform: .*",
         result.stdout,
     )
 
@@ -86,7 +86,7 @@ def test_correct_all_files_in_dir_recursively(
 def test_correct_mix_dir_and_files(
     runner: CliRunner, test_dir: Path, tmp_path: Path
 ) -> None:
-    """Ensure all files in a given directory get fixed by autoimport."""
+    """Ensure all files in a given directory get fixed by autoimportutf8."""
     test_file = tmp_path / "source.py"
     test_file.write_text("os.getcwd()")
 
@@ -122,7 +122,7 @@ def test_pyproject_common_statements(runner: CliRunner, tmp_path: Path) -> None:
     pyproject_toml.write_text(
         dedent(
             """\
-            [tool.autoimport]
+            [tool.autoimportutf8]
             common_statements = { "FooBar" = "from baz.qux import FooBar" }
             """
         )
@@ -153,7 +153,7 @@ def test_config_path_argument(runner: CliRunner, tmp_path: Path) -> None:
     pyproject_toml.write_text(
         dedent(
             """\
-            [tool.autoimport]
+            [tool.autoimportutf8]
             common_statements = { "FooBar" = "from baz.qux import FooBar" }
             """
         )
@@ -220,14 +220,14 @@ def test_global_and_local_config(  # noqa: R0913, R0914
 ) -> None:
     """
     Test interaction between the following:
-      - presence of the global config file $XDG_CONFIG_HOME/autoimport/config.toml
+      - presence of the global config file $XDG_CONFIG_HOME/autoimportutf8/config.toml
       - use of the --config-file flag to specify a local config file
       - presence of a pyproject.toml file
     """
     config = {
         "global": '[common_statements]\n"G" = "from g import G"',
         "local": '[common_statements]\n"R" = "from r import R"',
-        "pyproject": '[tool.autoimport.common_statements]\n"P" = "from p import P"',
+        "pyproject": '[tool.autoimportutf8.common_statements]\n"P" = "from p import P"',
     }
     code_path = tmp_path / "code.py"
     original_code = dedent(
@@ -243,7 +243,7 @@ def test_global_and_local_config(  # noqa: R0913, R0914
     if create_global_conf:
         xdg_home = (tmp_path / "xdg_home").resolve()  # must be absolute path
         env["XDG_CONFIG_HOME"] = str(xdg_home)
-        global_conf_path = xdg_home / "autoimport" / "config.toml"
+        global_conf_path = xdg_home / "autoimportutf8" / "config.toml"
         global_conf_path.parent.mkdir(parents=True)
         global_conf_path.write_text(config["global"])
     if use_local_conf:
@@ -282,7 +282,7 @@ def test_global_and_local_config_precedence(runner: CliRunner, tmp_path: Path) -
         ),
         "pyproject": dedent(
             """
-            [tool.autoimport.common_statements]
+            [tool.autoimportutf8.common_statements]
             "A" = "from pa import A"
             "C" = "from pc import C"
             "D" = "from pd import D"
@@ -322,7 +322,7 @@ def test_global_and_local_config_precedence(runner: CliRunner, tmp_path: Path) -
     # create_global_conf:
     xdg_home = (tmp_path / "xdg_home").resolve()  # must be absolute path
     env["XDG_CONFIG_HOME"] = str(xdg_home)
-    global_conf_path = xdg_home / "autoimport" / "config.toml"
+    global_conf_path = xdg_home / "autoimportutf8" / "config.toml"
     global_conf_path.parent.mkdir(parents=True)
     global_conf_path.write_text(config["global"])
     # create:

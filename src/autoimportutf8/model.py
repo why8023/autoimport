@@ -226,18 +226,18 @@ class SourceCode:  # noqa: R090
 
     @staticmethod
     def _should_ignore_line(line: str) -> bool:
-        """Determine whether a line should be ignored by autoimport or not."""
+        """Determine whether a line should be ignored by autoimportutf8 or not."""
         return any(
             [
                 re.match(r".*?# ?fmt:.*?skip.*", line),
-                re.match(r".*?# ?noqa:.*?autoimport.*", line),
+                re.match(r".*?# ?noqa:.*?autoimportutf8.*", line),
             ]
         )
 
     def _move_imports_to_top(self) -> None:
         """Fix python source code to move import statements to the top of the file.
 
-        Ignore the lines that contain the # noqa: autoimport string.
+        Ignore the lines that contain the # noqa: autoimportutf8 string.
         """
         multiline_import = False
         multiline_string = False
@@ -361,11 +361,11 @@ class SourceCode:  # noqa: R090
         except RuntimeError:  # pragma: no cover
             # I don't know how to make a test that raises it :(
             # To manually reproduce, follow the steps of
-            # https://github.com/lyz-code/autoimport/issues/131
+            # https://github.com/lyz-code/autoimportutf8/issues/131
             return None
         package_objects = extract_package_objects(project_package)
 
-        # nocover: as the tests are run inside the autoimport virtualenv, it will
+        # nocover: as the tests are run inside the autoimportutf8 virtualenv, it will
         # always find the objects on that package
         if package_objects is None:  # pragma: nocover
             return None
@@ -416,7 +416,7 @@ class SourceCode:  # noqa: R090
         if config_statements:
             return config_statements
         return (
-            self.config.get("tool", {}).get("autoimport", {}).get("common_statements")
+            self.config.get("tool", {}).get("autoimportutf8", {}).get("common_statements")
         )
 
     def _find_package_in_common_statements(self, name: str) -> Optional[str]:

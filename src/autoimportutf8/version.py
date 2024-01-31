@@ -6,7 +6,7 @@ from textwrap import dedent
 
 # Do not edit the version manually, let `make bump` do it.
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 
 def version_info() -> str:
@@ -14,7 +14,7 @@ def version_info() -> str:
     return dedent(
         f"""\
         ------------------------------------------------------------------
-             autoimport: {__version__}
+             autoimportutf8: {__version__}
              Python: {sys.version.split(" ", maxsplit=1)[0]}
              Platform: {platform.platform()}
         ------------------------------------------------------------------"""

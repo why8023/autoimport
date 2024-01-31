@@ -3,9 +3,9 @@
   "commit": "68a4cf28a19c6518974b71ecd61b8313c291bd2f",
   "context": {
     "cookiecutter": {
-      "project_name": "Autoimport",
-      "project_slug": "autoimport",
-      "project_description": "Autoimport missing python libraries.",
+      "project_name": "autoimportutf8",
+      "project_slug": "autoimportutf8",
+      "project_description": "autoimportutf8 missing python libraries.",
       "requirements": "autoflake",
       "configure_command_line": "True",
       "read_configuration_from_yaml": "True",
@@ -16,7 +16,7 @@
       "author": "Lyz",
       "author_email": "lyz-code-security-advisories@riseup.net",
       "security_advisories_email": "lyz-code-security-advisories@riseup.net",
-      "project_underscore_slug": "autoimport",
+      "project_underscore_slug": "autoimportutf8",
       "_template": "git@github.com:lyz-code/cookiecutter-python-project.git"
     }
   },

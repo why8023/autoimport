@@ -1,6 +1,6 @@
-"""Entrypoint to allow running as `python3 -m autoimport`."""
+"""Entrypoint to allow running as `python3 -m autoimportutf8`."""
 
-from autoimport.entrypoints.cli import cli
+from autoimportutf8.entrypoints.cli import cli
 
 if __name__ == "__main__":
     # this needs no-value-for-parameter exclusion because pylint

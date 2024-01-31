@@ -7,11 +7,11 @@ from typing import IO, Any, List, Optional, Sequence, Tuple, Union
 import click
 
 # Migrate away from xdg to xdg-base-dirs once only Python >= 3.10 is supported
-# https://github.com/lyz-code/autoimport/issues/239
+# https://github.com/lyz-code/autoimportutf8/issues/239
 import xdg
 from maison.config import ProjectConfig
 
-from autoimport import services, version
+from autoimportutf8 import services, version
 
 log = logging.getLogger(__name__)
 
@@ -69,7 +69,7 @@ def cli(
     # Compose configuration
     config_files: List[str] = []
 
-    global_config_path = xdg.xdg_config_home() / "autoimport" / "config.toml"
+    global_config_path = xdg.xdg_config_home() / "autoimportutf8" / "config.toml"
     if global_config_path.is_file():
         config_files.append(str(global_config_path))
 
@@ -79,7 +79,7 @@ def cli(
         config_files.append(config_file)
 
     config = ProjectConfig(
-        project_name="autoimport", source_files=config_files, merge_configs=True
+        project_name="autoimportutf8", source_files=config_files, merge_configs=True
     ).to_dict()
 
     # Process inputs

@@ -1,6 +1,6 @@
 """Test the extraction of package objects."""
 
-from autoimport.model import extract_package_objects
+from autoimportutf8.model import extract_package_objects
 
 
 def test_extraction_returns_the_package_functions() -> None:
@@ -9,7 +9,7 @@ def test_extraction_returns_the_package_functions() -> None:
     When: extract package objects is called
     Then: All the functions are extracted
     """
-    result = extract_package_objects("autoimport")
+    result = extract_package_objects("autoimportutf8")
 
     desired_objects = {
         "fix_code": "from autoimport import fix_code",

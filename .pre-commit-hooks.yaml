@@ -1,6 +1,6 @@
-- id: autoimport
-  name: autoimport
-  entry: autoimport
+- id: autoimportutf8
+  name: autoimportutf8
+  entry: autoimportutf8
   require_serial: true
   language: python
   language_version: python3

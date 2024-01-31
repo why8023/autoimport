@@ -1,7 +1,7 @@
 ---
-site_name: Autoimport
+site_name: autoimportutf8
 site_author: Lyz
-site_url: https://lyz-code.github.io/autoimport
+site_url: https://lyz-code.github.io/autoimportutf8
 nav:
   - Autoimport: index.md
   - Editor integration: editor_integration.md
